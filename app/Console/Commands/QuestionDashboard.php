@@ -39,14 +39,15 @@ class QuestionDashboard extends Command
      *
      * @return mixed
      */
+
+    /*
+    Name: handle
+    Args: -
+    Description: This function will serve basic commands for all operations of project
+    */
     public function handle()
     {
-        /*$menu = array();
-        $menu[0] = array("key" => 'Stats of users question' ,"value" => "php artisan quiz:on {username} - Will create users if not and will show stats of usres questions Press 1");
-        $menu[1] = array("key" => 'Create question', "value" => "php artisan question:create {questionname} {answer}  - Question will create with answers Press 2");
-        $menu[2] = array("key" => 'Practice your quiz', "value" => "php artisan quiz:practice {username} {question_id} - Answer any quiz Press 3");
-        $menu[3] = array("key" => 'Questions and Answers List', "value" => "php artisan question:list - Question and answers of quiz Press 4");
-        $menu[4] = array("key" => 'Reset users', "value" => "quiz:reset {username}  - Will Reset and Remove all users data from quiz and users table respectively Press 5");*/
+        
         $menu1[] = array('option_number' => '1','description' => 'Will create users if not and will show stats of usres questions'); 
         $menu1[] = array('option_number' => '2','description' => 'Question will create with answers'); 
         $menu1[] = array('option_number' => '3','description' => 'Answer any quiz'); 
@@ -67,6 +68,11 @@ class QuestionDashboard extends Command
         $this->operations($option);
     }
 
+    /*
+    Name: operations
+    Args: $option Array
+    Description: This function will handle logic for all options type
+    */
     public function operations($option)
     {
         if($option == 1)
@@ -100,8 +106,6 @@ class QuestionDashboard extends Command
                 $this->info("Found username".$users->id);
                 $user_id = $users->id;
             }
-
-            
             
             $quiz = Quiz::select(
                                 "quiz.id as quiz_id", 
